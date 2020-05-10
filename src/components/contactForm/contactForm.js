@@ -12,14 +12,18 @@ export default class ContactForm extends Component {
     number: '',
   };
 
-  handleSubmit = e => {
-    e.preventDefault();
-    this.props.onAddContact({ ...this.state });
-  };
-
   handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value,
+    });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.onAddContact({ ...this.state });
+    this.setState({
+      name: '',
+      number: '',
     });
   };
 
@@ -33,7 +37,15 @@ export default class ContactForm extends Component {
         </label>
         <label className={styles.label}>
           Number
-          <input className={styles.input} type="tel" name="number" value={number} onChange={this.handleChange} />
+          <input
+            className={styles.input}
+            type="tel"
+            pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}"
+            name="number"
+            placeholder="000-00-00"
+            value={number}
+            onChange={this.handleChange}
+          />
         </label>
         <button className={styles.submit} type="submit">
           Add contact

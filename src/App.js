@@ -76,7 +76,7 @@ export default class App extends Component {
           {contacts.length > 0 && (
             <div>
               <h2 className={styles.contacts}>Contacts</h2>
-              {contacts.length > 2 && <ContactFilter changeFilter={this.changeFilter} value={filter} />}
+              {contacts.length >= 2 && <ContactFilter changeFilter={this.changeFilter} value={filter} />}
               <ContactList contacts={this.filterContact()} removeContact={this.removeContact} />
             </div>
           )}

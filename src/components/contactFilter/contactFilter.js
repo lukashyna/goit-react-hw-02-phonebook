@@ -5,7 +5,6 @@ import styles from './contactFilter.module.css';
 const ContactFilter = ({ changeFilter, value }) => (
   <div>
     <label className={styles.findContacts}>
-      {' '}
       Find contacts by name
       <input className={styles.findContactInput} onChange={changeFilter} value={value} type="text" name="search" />
     </label>
